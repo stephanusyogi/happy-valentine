@@ -200,25 +200,24 @@ body {
   left: auto;
 }}
 
-.text {
+.valentines-day-card.clicked .text span {
+      display: none;
+    }
+
+    .valentines-day-card.clicked .text:before {
+      content:"Meski cinta kita terasa berat seperti karung beras,Namun senyummu membuat hatiku melayang-layang seperti balon udara. Awwwww";
+      font-size:25px;
+    }
+
+    .textt {
   color: white;
   font-family: 'Pacifico', cursive;
   text-align: center;
-}
-
-.valentines-day-card:hover .text span {
-  display: none;
-}
-
-.valentines-day-card:hover .text:before {
-  content:"Meski cinta kita terasa berat seperti karung beras,Namun senyummu membuat hatiku melayang-layang seperti balon udara. Awwwww";
-  font-size:25px;
-
-}
+    }
 </style>
 <body>
   <div class="happy-valentines">
-    <div class="valentines-day-card">
+    <div class="valentines-day-card" id="valentine-card">
       <div class="clouds"></div>
       <div class="hearts">
         <div class="heartOne">
@@ -244,8 +243,29 @@ body {
       </div>
       <div class="text"><span>Happy Valentine's</br> Day!</div>
     </div>
-    <p class="text">Klik kartunya yaa</p>
+    <p class="textt">Klik kartunya yaa</p>
     <p class="tips">Semoga sukaa yaa HAHAHAHA, mau coba lagii????<a href="../index.html"> Klik sinii</a></p>
     </div>
+
+    <script>
+      // Dapatkan elemen kartu Valentine
+      const valentineCard = document.getElementById("valentine-card");
+    
+      // Tambahkan event listener untuk menangani klik pada dokumen
+      document.addEventListener("click", function(event) {
+        // Periksa apakah elemen yang diklik bukan bagian dari kartu Valentine
+        if (!valentineCard.contains(event.target)) {
+          // Hapus kelas CSS untuk mengembalikan tampilan sebelumnya
+          valentineCard.classList.remove("clicked");
+        }
+      });
+    
+      // Tambahkan event listener untuk menangani klik pada kartu Valentine
+      valentineCard.addEventListener("click", function() {
+        // Tambahkan kelas CSS untuk mengubah gaya teks setelah klik
+        valentineCard.classList.add("clicked");
+      });
+    </script>
+    
 </body>
 </html>
